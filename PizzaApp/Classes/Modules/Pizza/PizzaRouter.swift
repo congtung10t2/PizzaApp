@@ -32,11 +32,11 @@ class PizzaRouter: PresenterToRouterPizzaProtocol {
     // MARK: - Navigation
     func pushToPizzaDetail(on view: PresenterToViewPizzaProtocol, with pizza: Pizza) {
         print("PizzaRouter is instructed to push PizzaDetailViewController onto the navigation stack.")
-        let PizzaDetailViewController = PizzaDetailRouter.createModule(with: pizza)
+        let pizzaDetailViewController = PizzaDetailRouter.createModule(with: pizza)
             
         let viewController = view as! PizzaViewController
         viewController.navigationController?
-            .pushViewController(PizzaDetailViewController, animated: true)
+            .pushViewController(pizzaDetailViewController, animated: true)
         
     }
     

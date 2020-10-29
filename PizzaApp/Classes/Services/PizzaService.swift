@@ -23,4 +23,16 @@ class PizzaService {
       failure(code)
     }
   }
+  
+  func getPromotion(success: @escaping (Int, [Promotion]) -> (), failure: @escaping (Int) -> ()) {
+    
+    APIClient.shared.getArray(urlString: Endpoints.Promotion,
+                              success:
+                                { (code, arrayOfPromotion) in
+                                  success(code, arrayOfPromotion)
+                                })
+    { code in
+      failure(code)
+    }
+  }
 }
