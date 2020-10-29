@@ -1,0 +1,30 @@
+[{
+    "title": "Hawaiian",
+    "desc": "Pizza good from Shop ABC",
+    "image": "pizz1",
+    "price": 533
+},
+{
+    "title": "Babecues",
+    "desc": "Pizza with meat",
+    "image": "pizz2",
+    "price": 334
+},
+{
+    "title": "HotPizza",
+    "desc": "Pizza with hot source",
+    "image": "pizz3",
+    "price": 423
+},
+{
+    "title": "SeaFood",
+    "desc": "Pizza with sea food",
+    "image": "pizz4",
+    "price": 253
+},
+{
+    "title": "Veggetable",
+    "desc": "Pizza with vegetable",
+    "image": "pizz5",
+    "price": 323
+}]
