@@ -9,6 +9,7 @@
 import UIKit
 import PKHUD
 import SnapKit
+import ParallaxHeader
 
 class PizzaViewController: UIViewController {
   
@@ -42,7 +43,6 @@ class PizzaViewController: UIViewController {
   
   lazy var refreshControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
-    refreshControl.attributedTitle = NSAttributedString(string: "Refreshing")
     refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     return refreshControl
   }()
@@ -100,21 +100,39 @@ extension PizzaViewController: UITableViewDelegate, UITableViewDataSource {
 extension PizzaViewController {
   func setupUI() {
     overrideUserInterfaceStyle = .light
+    navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.barTintColor = .black
     self.view.addSubview(tableView)
     tableView.addSubview(refreshControl)
-    tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 400))
+    let parentView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 400))
+    tableView.parallaxHeader.view = parentView
+    tableView.parallaxHeader.height = 300
+    tableView.parallaxHeader.minimumHeight = 0
+    tableView.parallaxHeader.mode = .topFill
     let promotionView = PromotionView.fromNib()
-    tableView.tableHeaderView?.addSubview(promotionView)
+    parentView.blurView.setup(style: UIBlurEffect.Style.dark, alpha: 1).enable()
+  
+    tableView.parallaxHeader.view.addSubview(promotionView)
     promotionView.snp.makeConstraints { make in
       make.leading.equalToSuperview()
       make.top.equalToSuperview()
       make.trailing.equalToSuperview()
       make.bottom.equalToSuperview()
     }
-    tableView.tableHeaderView?.backgroundColor = .red
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-    tableView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
-    tableView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+    tableView.parallaxHeader.parallaxHeaderDidScrollHandler = { parallaxHeader in
+        //update alpha of blur view on top of image view
+      promotionView.scrollingValue.accept(parallaxHeader.progress)
+    }
+    promotionView.alpha = 1
+    tableView.snp.makeConstraints { make in
+      make.bottom.equalToSuperview()
+      make.top.equalToSuperview()
+      make.left.equalToSuperview()
+      make.right.equalToSuperview()
+    }
     tableView.register(PizzaViewCell.self)
+  }
+  override var prefersStatusBarHidden: Bool {
+      return true
   }
 }

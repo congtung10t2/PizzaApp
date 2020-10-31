@@ -32,7 +32,9 @@ class PizzaDetailViewController: UIViewController {
     label.numberOfLines = 0
     return label
   }()
-  
+  override var prefersStatusBarHidden: Bool {
+      return true
+  }
 }
 
 extension PizzaDetailViewController: PresenterToViewPizzaDetailProtocol {
@@ -66,7 +68,7 @@ extension PizzaDetailViewController: PresenterToViewPizzaDetailProtocol {
 extension PizzaDetailViewController {
   func setupUI() {
     overrideUserInterfaceStyle = .light
-    
+    navigationController?.navigationBar.isTranslucent = false
     self.view.backgroundColor = .white
     
     self.view.addSubview(characterImageView)

@@ -3,7 +3,7 @@
 //  PizzaApp
 //
 //  Created by TungImac on 10/29/20.
-//  Copyright © 2020 Zafar. All rights reserved.
+//  Copyright © 2020 TungImac. All rights reserved.
 //
 
 import ObjectMapper

@@ -3,24 +3,37 @@
 //  PizzaApp
 //
 //  Created by TungImac on 10/31/20.
-//  Copyright © 2020 Zafar. All rights reserved.
+//  Copyright © 2020 TungImac. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import RxSwift
 import SnapKit
+import RxCocoa
+
 class PromotionView: UIView, NibInstantiatable {
   @IBOutlet private weak var collectionView: UICollectionView!
   @IBOutlet private weak var pageControl: UIPageControl!
   private var interactor = PromotionInteractor()
+  public var scrollingValue = BehaviorRelay<CGFloat>(value: 0)
   let disposeBag = DisposeBag()
   override func awakeFromNib() {
-      super.awakeFromNib()
+    super.awakeFromNib()
+    setupUI()
+  }
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  func setupUI() {
+    scrollingValue.bind(to: self.rx.alpha).disposed(by: disposeBag)
+    scrollingValue.subscribe(onNext: { value in
+      self.pageControl.isHidden = value < 0.9
+    }).disposed(by: disposeBag)
     interactor.loadPromotion()
     collectionView.register(PromotionViewCell.self, forCellWithReuseIdentifier: "PromotionViewCell")
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     layout.scrollDirection = .horizontal
     layout.itemSize = CGSize(width: self.frame.width, height: self.frame.height)
     collectionView.collectionViewLayout = layout
@@ -28,9 +41,7 @@ class PromotionView: UIView, NibInstantiatable {
       pageControl.numberOfPages = value.count
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
-  }
-  required init?(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
+    self.pageControl.isHidden = false
   }
 }
 
@@ -52,23 +63,13 @@ extension PromotionView: UICollectionViewDataSource, UICollectionViewDelegate {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionViewCell", for: indexPath)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PromotionViewCell", for: indexPath) as! PromotionViewCell
     if let image = interactor.promotionRelay.value[indexPath.section].image {
-      let imageView = UIImageView(frame: self.frame)
-      imageView.image = ImageDataService.shared.convertToUIImage(from: image)
-      cell.addSubview(imageView)
-      imageView.snp.makeConstraints { make in
-        make.leading.equalToSuperview()
-        make.top.equalToSuperview()
-        make.trailing.equalToSuperview()
-        make.bottom.equalToSuperview()
-      }
-      cell.clipsToBounds = true
+      cell.configurate(name: image)
     }
     return cell
   }
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     self.frame.size
   }
-
 }
