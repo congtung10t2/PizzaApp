@@ -55,6 +55,10 @@ extension PizzaDetailViewController: PresenterToViewPizzaDetailProtocol {
     pizzaLabel.text = pizza
     self.navigationItem.title = character
   }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.isNavigationBarHidden = false
+  }
   
 }
 
@@ -78,7 +82,6 @@ extension PizzaDetailViewController {
       .isActive = true
     characterImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
       .isActive = true
-    
     pizzaLabel.translatesAutoresizingMaskIntoConstraints = false
     pizzaLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor)
       .isActive = true

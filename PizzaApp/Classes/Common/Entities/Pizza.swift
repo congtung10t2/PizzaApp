@@ -25,3 +25,8 @@ struct Pizza: Mappable {
   }
   
 }
+extension Pizza {
+  var priceString: String {
+    "\(price) usd"
+  }
+}

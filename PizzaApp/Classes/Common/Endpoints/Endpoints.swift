@@ -10,5 +10,5 @@ import Foundation
 
 struct Endpoints {
   static let Pizza = "pizza"
-  static let Promotion = "pizza"
+  static let Promotion = "promotion"
 }

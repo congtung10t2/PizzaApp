@@ -25,9 +25,17 @@
 		1CE0CA8223BE72F1000B6E63 /* PizzaDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0CA7D23BE72F1000B6E63 /* PizzaDetailRouter.swift */; };
 		1CE0CA8323BE72F1000B6E63 /* PizzaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0CA7E23BE72F1000B6E63 /* PizzaDetailViewController.swift */; };
 		1CE0CA8423BE72F1000B6E63 /* PizzaDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0CA7F23BE72F1000B6E63 /* PizzaDetailInteractor.swift */; };
+		2E12F637254D218700205202 /* PizzaViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E12F636254D218700205202 /* PizzaViewCell.xib */; };
+		2E12F63C254D235E00205202 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E12F63B254D235E00205202 /* UIView+Extensions.swift */; };
+		2E12F63F254D23E400205202 /* PizzaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E12F63E254D23E400205202 /* PizzaViewCell.swift */; };
+		2E12F655254D295100205202 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E12F654254D295100205202 /* UITableView+Extensions.swift */; };
 		2E56437B254B0749006CAA44 /* pizza.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E56437A254B0749006CAA44 /* pizza.json */; };
 		2E86DC21254B1EC8001E24A5 /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E86DC20254B1EC8001E24A5 /* promotion.json */; };
 		2E86DC24254B2358001E24A5 /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86DC23254B2358001E24A5 /* Promotion.swift */; };
+		2E9AB3A0254D9C41008FF557 /* PromotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9AB39F254D9C41008FF557 /* PromotionView.swift */; };
+		2E9AB3A3254D9C6E008FF557 /* PromotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9AB3A2254D9C6E008FF557 /* PromotionView.xib */; };
+		2E9AB3B2254DAD64008FF557 /* PromotionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9AB3B1254DAD64008FF557 /* PromotionInteractor.swift */; };
+		2E9AB3BB254DB523008FF557 /* PromotionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9AB3BA254DB523008FF557 /* PromotionViewCell.swift */; };
 		92227E411FCEF3F3E1FE2320 /* Pods_PizzaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56DBE51372F4C82C2DDB8F8 /* Pods_PizzaApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,9 +61,17 @@
 		1CE0CA7E23BE72F1000B6E63 /* PizzaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailViewController.swift; sourceTree = "<group>"; };
 		1CE0CA7F23BE72F1000B6E63 /* PizzaDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailInteractor.swift; sourceTree = "<group>"; };
 		2CB293A21D40890A80481347 /* Pods-PizzaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaApp.release.xcconfig"; path = "Target Support Files/Pods-PizzaApp/Pods-PizzaApp.release.xcconfig"; sourceTree = "<group>"; };
+		2E12F636254D218700205202 /* PizzaViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaViewCell.xib; sourceTree = "<group>"; };
+		2E12F63B254D235E00205202 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		2E12F63E254D23E400205202 /* PizzaViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewCell.swift; sourceTree = "<group>"; };
+		2E12F654254D295100205202 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		2E56437A254B0749006CAA44 /* pizza.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pizza.json; sourceTree = "<group>"; };
 		2E86DC20254B1EC8001E24A5 /* promotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = promotion.json; sourceTree = "<group>"; };
 		2E86DC23254B2358001E24A5 /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
+		2E9AB39F254D9C41008FF557 /* PromotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionView.swift; sourceTree = "<group>"; };
+		2E9AB3A2254D9C6E008FF557 /* PromotionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionView.xib; sourceTree = "<group>"; };
+		2E9AB3B1254DAD64008FF557 /* PromotionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionInteractor.swift; sourceTree = "<group>"; };
+		2E9AB3BA254DB523008FF557 /* PromotionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewCell.swift; sourceTree = "<group>"; };
 		A2D8CE5709E0178790E4DB05 /* Pods-PizzaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaApp.debug.xcconfig"; path = "Target Support Files/Pods-PizzaApp/Pods-PizzaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BA6C88131C16D1D4AB52D991 /* Pods-VIPER-SimpsonQuotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER-SimpsonQuotes.release.xcconfig"; path = "Target Support Files/Pods-VIPER-SimpsonQuotes/Pods-VIPER-SimpsonQuotes.release.xcconfig"; sourceTree = "<group>"; };
 		CEC362BD49CA21AB2DE407CA /* Pods-VIPER-SimpsonQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER-SimpsonQuotes.debug.xcconfig"; path = "Target Support Files/Pods-VIPER-SimpsonQuotes/Pods-VIPER-SimpsonQuotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +147,8 @@
 		1C3331C523BE218F006A6DD4 /* Pizza */ = {
 			isa = PBXGroup;
 			children = (
+				2E9AB39D254D9BB6008FF557 /* Promotion */,
+				2E12F627254D1B1700205202 /* Cell */,
 				1C3331C623BE219D006A6DD4 /* PizzaContract.swift */,
 				1C3331C723BE219D006A6DD4 /* PizzaPresenter.swift */,
 				1C3331C823BE219D006A6DD4 /* PizzaRouter.swift */,
@@ -143,6 +161,7 @@
 		1C3331D023BE2D77006A6DD4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2E12F639254D234A00205202 /* Extensions */,
 				1CE0CA7723BE52AE000B6E63 /* Endpoints */,
 				1C3331D323BE2E4C006A6DD4 /* Entities */,
 			);
@@ -215,6 +234,35 @@
 				1CE0CA7F23BE72F1000B6E63 /* PizzaDetailInteractor.swift */,
 			);
 			path = PizzaDetail;
+			sourceTree = "<group>";
+		};
+		2E12F627254D1B1700205202 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E12F636254D218700205202 /* PizzaViewCell.xib */,
+				2E12F63E254D23E400205202 /* PizzaViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2E12F639254D234A00205202 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E12F654254D295100205202 /* UITableView+Extensions.swift */,
+				2E12F63B254D235E00205202 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E9AB39D254D9BB6008FF557 /* Promotion */ = {
+			isa = PBXGroup;
+			children = (
+				2E9AB39F254D9C41008FF557 /* PromotionView.swift */,
+				2E9AB3A2254D9C6E008FF557 /* PromotionView.xib */,
+				2E9AB3B1254DAD64008FF557 /* PromotionInteractor.swift */,
+				2E9AB3BA254DB523008FF557 /* PromotionViewCell.swift */,
+			);
+			path = Promotion;
 			sourceTree = "<group>";
 		};
 		3A053F7FB296357A9201E811 /* Pods */ = {
@@ -298,8 +346,10 @@
 			files = (
 				1C01724623BD116000B80FCE /* LaunchScreen.storyboard in Resources */,
 				2E86DC21254B1EC8001E24A5 /* promotion.json in Resources */,
+				2E9AB3A3254D9C6E008FF557 /* PromotionView.xib in Resources */,
 				1C01724323BD116000B80FCE /* Assets.xcassets in Resources */,
 				2E56437B254B0749006CAA44 /* pizza.json in Resources */,
+				2E12F637254D218700205202 /* PizzaViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,10 +411,16 @@
 				1C3331CB23BE219D006A6DD4 /* PizzaContract.swift in Sources */,
 				1CDEB5BD23BF22A200487615 /* ImageDataService.swift in Sources */,
 				1C3331CE23BE219D006A6DD4 /* PizzaViewController.swift in Sources */,
+				2E9AB3A0254D9C41008FF557 /* PromotionView.swift in Sources */,
 				1C01723A23BD115E00B80FCE /* AppDelegate.swift in Sources */,
 				1C3331D523BE2E55006A6DD4 /* Pizza.swift in Sources */,
 				2E86DC24254B2358001E24A5 /* Promotion.swift in Sources */,
+				2E12F63C254D235E00205202 /* UIView+Extensions.swift in Sources */,
+				2E9AB3B2254DAD64008FF557 /* PromotionInteractor.swift in Sources */,
+				2E12F63F254D23E400205202 /* PizzaViewCell.swift in Sources */,
 				1C3331CD23BE219D006A6DD4 /* PizzaRouter.swift in Sources */,
+				2E12F655254D295100205202 /* UITableView+Extensions.swift in Sources */,
+				2E9AB3BB254DB523008FF557 /* PromotionViewCell.swift in Sources */,
 				1CE0CA7423BE4A02000B6E63 /* APIClient.swift in Sources */,
 				1CE0CA8123BE72F1000B6E63 /* PizzaDetailPresenter.swift in Sources */,
 				1CE0CA7923BE52B9000B6E63 /* Endpoints.swift in Sources */,

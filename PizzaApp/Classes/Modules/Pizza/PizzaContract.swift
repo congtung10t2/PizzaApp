@@ -13,7 +13,6 @@ import UIKit
 protocol PresenterToViewPizzaProtocol: class {
   func onFetchPizzaSuccess()
   func onFetchPizzaFailure(error: String)
-  
   func showHUD()
   func hideHUD()
   
@@ -29,6 +28,7 @@ protocol ViewToPresenterPizzaProtocol: class {
   var router: PresenterToRouterPizzaProtocol? { get set }
   
   var pizzaTitles: [Pizza]? { get set }
+  
   
   func viewDidLoad()
   

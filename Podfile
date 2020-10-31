@@ -7,5 +7,7 @@ target 'PizzaApp' do
   pod 'PKHUD'
   pod 'Moya/RxSwift'
   pod 'ObjectMapper'
-  
+  pod 'RxCocoa'
+  pod 'ParallaxHeader', '~> 3.0.0'
+  pod 'SnapKit'
 end
