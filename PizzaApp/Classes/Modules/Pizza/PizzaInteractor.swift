@@ -7,21 +7,22 @@
 //
 
 import Foundation
-
+import RxSwift
 class PizzaInteractor: PresenterToInteractorPizzaProtocol {
   
   // MARK: Properties
   weak var presenter: InteractorToPresenterPizzaProtocol?
   var pizza: [Pizza]?
+  let disposeBag = DisposeBag()
   
   func loadPizza() {
-    print("Interactor receives the request from Presenter to load Pizza from the server.")
-    PizzaService.shared.getPizza( success: { (code, pizza) in
-      self.pizza = pizza
-      self.presenter?.fetchPizzaSuccess(pizza: pizza)
-    }) { (code) in
-      self.presenter?.fetchPizzaFailure(errorCode: code)
-    }
+    PizzaService.shared.getPizza().subscribe(onNext: { value in
+      self.pizza = value
+      self.presenter?.fetchPizzaSuccess(pizza: value)
+    }, onError: { error in
+      self.presenter?.fetchPizzaFailure(error: error)
+    }).disposed(by: disposeBag)
+ 
     
   }
   

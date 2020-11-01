@@ -12,11 +12,8 @@ import RxRelay
 
 class PromotionInteractor {
   public var promotionRelay = BehaviorRelay<[Promotion]>(value: [])
+  let disposeBag = DisposeBag()
   func loadPromotion() {
-    PizzaService.shared.getPromotion(success: { (code, promotion) in
-      self.promotionRelay.accept(promotion)
-    }, failure: { code in
-      print(code)
-    })
+    PizzaService.shared.getPromotion().bind(to: promotionRelay).disposed(by: disposeBag)
   }
 }

@@ -12,7 +12,7 @@ import UIKit
 // MARK: View Output (Presenter -> View)
 protocol PresenterToViewPizzaProtocol: class {
   func onFetchPizzaSuccess()
-  func onFetchPizzaFailure(error: String)
+  func onFetchPizzaFailure(error: Error)
   func showHUD()
   func hideHUD()
   
@@ -59,7 +59,7 @@ protocol PresenterToInteractorPizzaProtocol: class {
 protocol InteractorToPresenterPizzaProtocol: class {
   
   func fetchPizzaSuccess(pizza: [Pizza])
-  func fetchPizzaFailure(errorCode: Int)
+  func fetchPizzaFailure(error: Error)
   
   func getPizzaSuccess(_ pizza: Pizza)
   func checkOut(pizza: [Pizza: Int])

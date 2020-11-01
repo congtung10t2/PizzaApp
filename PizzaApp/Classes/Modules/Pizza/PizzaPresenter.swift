@@ -66,10 +66,10 @@ extension PizzaPresenter: InteractorToPresenterPizzaProtocol {
     view?.onFetchPizzaSuccess()
   }
   
-  func fetchPizzaFailure(errorCode: Int) {
+  func fetchPizzaFailure(error: Error) {
     print("Presenter receives the result from Interactor after it's done its job.")
     view?.hideHUD()
-    view?.onFetchPizzaFailure(error: "Couldn't fetch Pizza: \(errorCode)")
+    view?.onFetchPizzaFailure(error: error)
   }
   
   func getPizzaSuccess(_ pizza: Pizza) {

@@ -62,8 +62,8 @@ extension PizzaViewController: PresenterToViewPizzaProtocol{
     self.refreshControl.endRefreshing()
   }
   
-  func onFetchPizzaFailure(error: String) {
-    print("View receives the response from Presenter with error: \(error)")
+  func onFetchPizzaFailure(error: Error) {
+    showAlert(title: "Pizza Apps", message: error.localizedDescription)
     self.refreshControl.endRefreshing()
   }
   
