@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct Pizza: Mappable {
+struct Pizza: Mappable, Hashable {
   
   var title: String?
   var desc: String?

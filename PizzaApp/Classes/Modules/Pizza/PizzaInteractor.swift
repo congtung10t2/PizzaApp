@@ -33,4 +33,7 @@ class PizzaInteractor: PresenterToInteractorPizzaProtocol {
     self.presenter?.getPizzaSuccess(self.pizza![index])
   }
   
+  func checkOut(pizza: [Pizza: Int]) {
+    self.presenter?.checkOut(pizza: pizza)
+  }
 }

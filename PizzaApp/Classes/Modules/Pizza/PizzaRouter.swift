@@ -11,6 +11,8 @@ import UIKit
 class PizzaRouter: PresenterToRouterPizzaProtocol {
   
   
+  
+  
   // MARK: Static methods
   static func createModule() -> UINavigationController {
     
@@ -39,5 +41,11 @@ class PizzaRouter: PresenterToRouterPizzaProtocol {
       .pushViewController(pizzaDetailViewController, animated: true)
     
   }
-  
+  func pushToPizzaCheckout(on view: PresenterToViewPizzaProtocol, pizza: [Pizza: Int]) {
+    
+    let pizzaCheckoutViewController = PizzaCheckoutRouter.createModule(pizza: pizza)
+    let viewController = view as! PizzaViewController
+    viewController.navigationController?
+      .pushViewController(pizzaCheckoutViewController, animated: true)
+  }
 }

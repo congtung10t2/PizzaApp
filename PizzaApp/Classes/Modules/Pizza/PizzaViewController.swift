@@ -16,6 +16,7 @@ import RxCocoa
 class PizzaViewController: UIViewController {
   let disposeBag = DisposeBag()
   let pizzaQuantity = BehaviorRelay<Int>(value: 0)
+  var pizzaMap = [Pizza: Int]()
   // MARK: - Lifecycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,7 +39,8 @@ class PizzaViewController: UIViewController {
   
   lazy var tableView: UITableView = {
     let tableView = UITableView()
-    tableView.rowHeight = 400
+    tableView.rowHeight = 450
+    tableView.separatorStyle = .none
     tableView.dataSource = self
     tableView.delegate = self
     return tableView
@@ -90,11 +92,11 @@ extension PizzaViewController: UITableViewDelegate, UITableViewDataSource {
     let cell: PizzaViewCell = tableView.dequeueReusableCell(for: indexPath)
     guard let pizza = presenter?.pizzaTitles?[indexPath.row] else { return cell }
     cell.setup(pizza: pizza)
-    cell.onTapAdd.subscribe(onNext: {
+    cell.onTapAdd.throttle(0.5, latest: true, scheduler: MainScheduler.instance).subscribe(onNext: { _ in
       let quantity = self.pizzaQuantity.value + 1
       self.pizzaQuantity.accept(quantity)
+      self.pizzaMap.updateValue((self.pizzaMap[pizza] ?? 0) + 1, forKey: pizza)
     }).disposed(by: cell.disposeBag!)
-    
     return cell
   }
   
@@ -119,6 +121,9 @@ extension PizzaViewController {
     }
     tableView.register(PizzaViewCell.self)
     addPizzaButton()
+    let backItem = UIBarButtonItem()
+    backItem.title = "Menu"
+    navigationItem.backBarButtonItem = backItem
   }
   
   func addPizzaButton() {
@@ -149,6 +154,10 @@ extension PizzaViewController {
       make.left.equalToSuperview()
     }
     button.addSubview(addIcon)
+    button.rx.tap.subscribe({ [weak self] _ in
+      guard let self = self else { return }
+      self.presenter?.checkOut(pizza: self.pizzaMap)
+    }).disposed(by: disposeBag)
     addIcon.snp.makeConstraints { make in
       make.size.equalTo( CGSize(width: 20, height: 20))
       make.top.equalTo(button.snp.top).offset(-10)

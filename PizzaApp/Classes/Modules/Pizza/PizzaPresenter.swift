@@ -9,6 +9,7 @@
 import Foundation
 
 class PizzaPresenter: ViewToPresenterPizzaProtocol {
+  
   // MARK: Properties
   weak var view: PresenterToViewPizzaProtocol?
   var interactor: PresenterToInteractorPizzaProtocol?
@@ -53,6 +54,10 @@ class PizzaPresenter: ViewToPresenterPizzaProtocol {
 
 // MARK: - Outputs to view
 extension PizzaPresenter: InteractorToPresenterPizzaProtocol {
+  func checkOut(pizza: [Pizza: Int]) {
+    router?.pushToPizzaCheckout(on: view!, pizza: pizza)
+  }
+  
   
   func fetchPizzaSuccess(pizza: [Pizza]) {
     print("Presenter receives the result from Interactor after it's done its job.")

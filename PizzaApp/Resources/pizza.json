@@ -2,29 +2,29 @@
     "title": "Pizza Margherita",
     "desc": "San Marzano tomato sauce, fresh mozzarella fior di latte, fresh organic basil",
     "image": "pizz1",
-    "price": 533
+    "price": 33
 },
 {
     "title": "Sonny (Italian Sausage)",
     "desc": "San Marzano tomato sauce, fresh mozzarella, grated parmesan and pepperoni from Il Mondo Vecchio",
     "image": "pizz2",
-    "price": 334
+    "price": 34
 },
 {
     "title": "Fun-Guy (The Shroom)",
     "desc": "White pizza with garlic infused olive oil, goat cheese from Jumpin’ Good Goat Dairy, mozzarella fior di latte and organic, locally raised Shitake mushrooms from Hazel Dell (Featured in Denver Magazine, 100 things to taste, October 2010)",
     "image": "pizz3",
-    "price": 423
+    "price": 23
 },
 {
     "title": "Porcetta Flat-bread Sandwich",
     "desc": "A traditional Italian seasoned roasted pork shoulder, seared in the oven, served on a fresh, hand-made flat-bread then topped with pesto crème fraiche and arugula ",
     "image": "pizz4",
-    "price": 253
+    "price": 53
 },
 {
     "title": "Marky (Pepperoni Americana)",
     "desc": "San Marzano tomato sauce, fresh mozzarella, grated parmesan and pepperoni from Il Mondo Vecchio",
     "image": "pizz5",
-    "price": 323
+    "price": 23
 }]

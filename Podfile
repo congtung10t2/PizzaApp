@@ -10,4 +10,5 @@ target 'PizzaApp' do
   pod 'RxCocoa'
   pod 'ParallaxHeader', '~> 3.0.0'
   pod 'SnapKit'
+  pod 'RxDataSources', '~> 4.0'
 end

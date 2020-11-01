@@ -32,6 +32,8 @@ protocol ViewToPresenterPizzaProtocol: class {
   
   func viewDidLoad()
   
+  func checkOut(pizza: [Pizza: Int])
+  
   func refresh()
   
   func numberOfRowsInSection() -> Int
@@ -60,6 +62,7 @@ protocol InteractorToPresenterPizzaProtocol: class {
   func fetchPizzaFailure(errorCode: Int)
   
   func getPizzaSuccess(_ pizza: Pizza)
+  func checkOut(pizza: [Pizza: Int])
   func getPizzaFailure()
   
 }
@@ -71,4 +74,5 @@ protocol PresenterToRouterPizzaProtocol: class {
   static func createModule() -> UINavigationController
   
   func pushToPizzaDetail(on view: PresenterToViewPizzaProtocol, with Pizza: Pizza)
+  func pushToPizzaCheckout(on view: PresenterToViewPizzaProtocol, pizza: [Pizza: Int])
 }

@@ -37,6 +37,14 @@
 		2E9AB3B2254DAD64008FF557 /* PromotionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9AB3B1254DAD64008FF557 /* PromotionInteractor.swift */; };
 		2E9AB3BB254DB523008FF557 /* PromotionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9AB3BA254DB523008FF557 /* PromotionViewCell.swift */; };
 		2EF1135C254E5D5900EF8259 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1135B254E5D5900EF8259 /* UIButton+Extensions.swift */; };
+		2EF11365254E8C8600EF8259 /* PizzaCheckoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1135F254E8C8600EF8259 /* PizzaCheckoutPresenter.swift */; };
+		2EF11366254E8C8600EF8259 /* PizzaCheckoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF11360254E8C8600EF8259 /* PizzaCheckoutRouter.swift */; };
+		2EF11367254E8C8600EF8259 /* PizzaCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF11361254E8C8600EF8259 /* PizzaCheckoutViewController.swift */; };
+		2EF11368254E8C8600EF8259 /* PizzaCheckoutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF11362254E8C8600EF8259 /* PizzaCheckoutProtocols.swift */; };
+		2EF11369254E8C8600EF8259 /* PizzaCheckoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF11363254E8C8600EF8259 /* PizzaCheckoutInteractor.swift */; };
+		2EF1136A254E8C8600EF8259 /* PizzaCheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF11364254E8C8600EF8259 /* PizzaCheckoutViewController.xib */; };
+		2EF1136F254E913F00EF8259 /* PizzaCheckoutViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1136E254E913F00EF8259 /* PizzaCheckoutViewCell.xib */; };
+		2EF11372254E94A900EF8259 /* PizzaCheckoutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF11371254E94A900EF8259 /* PizzaCheckoutViewCell.swift */; };
 		92227E411FCEF3F3E1FE2320 /* Pods_PizzaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56DBE51372F4C82C2DDB8F8 /* Pods_PizzaApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +82,14 @@
 		2E9AB3B1254DAD64008FF557 /* PromotionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionInteractor.swift; sourceTree = "<group>"; };
 		2E9AB3BA254DB523008FF557 /* PromotionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewCell.swift; sourceTree = "<group>"; };
 		2EF1135B254E5D5900EF8259 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		2EF1135F254E8C8600EF8259 /* PizzaCheckoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCheckoutPresenter.swift; sourceTree = "<group>"; };
+		2EF11360254E8C8600EF8259 /* PizzaCheckoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCheckoutRouter.swift; sourceTree = "<group>"; };
+		2EF11361254E8C8600EF8259 /* PizzaCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCheckoutViewController.swift; sourceTree = "<group>"; };
+		2EF11362254E8C8600EF8259 /* PizzaCheckoutProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCheckoutProtocols.swift; sourceTree = "<group>"; };
+		2EF11363254E8C8600EF8259 /* PizzaCheckoutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCheckoutInteractor.swift; sourceTree = "<group>"; };
+		2EF11364254E8C8600EF8259 /* PizzaCheckoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaCheckoutViewController.xib; sourceTree = "<group>"; };
+		2EF1136E254E913F00EF8259 /* PizzaCheckoutViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaCheckoutViewCell.xib; sourceTree = "<group>"; };
+		2EF11371254E94A900EF8259 /* PizzaCheckoutViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCheckoutViewCell.swift; sourceTree = "<group>"; };
 		A2D8CE5709E0178790E4DB05 /* Pods-PizzaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaApp.debug.xcconfig"; path = "Target Support Files/Pods-PizzaApp/Pods-PizzaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BA6C88131C16D1D4AB52D991 /* Pods-VIPER-SimpsonQuotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER-SimpsonQuotes.release.xcconfig"; path = "Target Support Files/Pods-VIPER-SimpsonQuotes/Pods-VIPER-SimpsonQuotes.release.xcconfig"; sourceTree = "<group>"; };
 		CEC362BD49CA21AB2DE407CA /* Pods-VIPER-SimpsonQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER-SimpsonQuotes.debug.xcconfig"; path = "Target Support Files/Pods-VIPER-SimpsonQuotes/Pods-VIPER-SimpsonQuotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +156,7 @@
 		1C33319823BD1243006A6DD4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2EF1135E254E8BB000EF8259 /* PizzaCheckout */,
 				1C3331C523BE218F006A6DD4 /* Pizza */,
 				1CE0CA7A23BE72E1000B6E63 /* PizzaDetail */,
 			);
@@ -268,6 +285,29 @@
 			path = Promotion;
 			sourceTree = "<group>";
 		};
+		2EF1135E254E8BB000EF8259 /* PizzaCheckout */ = {
+			isa = PBXGroup;
+			children = (
+				2EF1136C254E912000EF8259 /* Cell */,
+				2EF1135F254E8C8600EF8259 /* PizzaCheckoutPresenter.swift */,
+				2EF11360254E8C8600EF8259 /* PizzaCheckoutRouter.swift */,
+				2EF11361254E8C8600EF8259 /* PizzaCheckoutViewController.swift */,
+				2EF11362254E8C8600EF8259 /* PizzaCheckoutProtocols.swift */,
+				2EF11363254E8C8600EF8259 /* PizzaCheckoutInteractor.swift */,
+				2EF11364254E8C8600EF8259 /* PizzaCheckoutViewController.xib */,
+			);
+			path = PizzaCheckout;
+			sourceTree = "<group>";
+		};
+		2EF1136C254E912000EF8259 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2EF1136E254E913F00EF8259 /* PizzaCheckoutViewCell.xib */,
+				2EF11371254E94A900EF8259 /* PizzaCheckoutViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3A053F7FB296357A9201E811 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +388,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C01724623BD116000B80FCE /* LaunchScreen.storyboard in Resources */,
+				2EF1136F254E913F00EF8259 /* PizzaCheckoutViewCell.xib in Resources */,
 				2E86DC21254B1EC8001E24A5 /* promotion.json in Resources */,
+				2EF1136A254E8C8600EF8259 /* PizzaCheckoutViewController.xib in Resources */,
 				2E9AB3A3254D9C6E008FF557 /* PromotionView.xib in Resources */,
 				1C01724323BD116000B80FCE /* Assets.xcassets in Resources */,
 				2E56437B254B0749006CAA44 /* pizza.json in Resources */,
@@ -410,11 +452,13 @@
 				1CE0CA8423BE72F1000B6E63 /* PizzaDetailInteractor.swift in Sources */,
 				1CE0CA7623BE4A0C000B6E63 /* PizzaService.swift in Sources */,
 				1CE0CA8323BE72F1000B6E63 /* PizzaDetailViewController.swift in Sources */,
+				2EF11369254E8C8600EF8259 /* PizzaCheckoutInteractor.swift in Sources */,
 				1C3331CF23BE219D006A6DD4 /* PizzaInteractor.swift in Sources */,
 				1CE0CA8223BE72F1000B6E63 /* PizzaDetailRouter.swift in Sources */,
 				1C3331CB23BE219D006A6DD4 /* PizzaContract.swift in Sources */,
 				1CDEB5BD23BF22A200487615 /* ImageDataService.swift in Sources */,
 				1C3331CE23BE219D006A6DD4 /* PizzaViewController.swift in Sources */,
+				2EF11367254E8C8600EF8259 /* PizzaCheckoutViewController.swift in Sources */,
 				2E9AB3A0254D9C41008FF557 /* PromotionView.swift in Sources */,
 				1C01723A23BD115E00B80FCE /* AppDelegate.swift in Sources */,
 				1C3331D523BE2E55006A6DD4 /* Pizza.swift in Sources */,
@@ -422,13 +466,17 @@
 				2E12F63C254D235E00205202 /* UIView+Extensions.swift in Sources */,
 				2E9AB3B2254DAD64008FF557 /* PromotionInteractor.swift in Sources */,
 				2E12F63F254D23E400205202 /* PizzaViewCell.swift in Sources */,
+				2EF11365254E8C8600EF8259 /* PizzaCheckoutPresenter.swift in Sources */,
 				1C3331CD23BE219D006A6DD4 /* PizzaRouter.swift in Sources */,
+				2EF11368254E8C8600EF8259 /* PizzaCheckoutProtocols.swift in Sources */,
+				2EF11366254E8C8600EF8259 /* PizzaCheckoutRouter.swift in Sources */,
 				2E12F655254D295100205202 /* UITableView+Extensions.swift in Sources */,
 				2E9AB3BB254DB523008FF557 /* PromotionViewCell.swift in Sources */,
 				1CE0CA7423BE4A02000B6E63 /* APIClient.swift in Sources */,
 				1CE0CA8123BE72F1000B6E63 /* PizzaDetailPresenter.swift in Sources */,
 				1CE0CA7923BE52B9000B6E63 /* Endpoints.swift in Sources */,
 				1CE0CA8023BE72F1000B6E63 /* PizzaDetailContract.swift in Sources */,
+				2EF11372254E94A900EF8259 /* PizzaCheckoutViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

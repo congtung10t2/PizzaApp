@@ -29,7 +29,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg3-B6-yjH">
-                        <rect key="frame" x="256" y="353" width="119" height="36"/>
+                        <rect key="frame" x="256" y="334" width="119" height="36"/>
                         <color key="backgroundColor" red="0.16234763547370681" green="0.73344397668393779" blue="0.29941587382432222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="irH-Fi-QPG"/>
@@ -68,7 +68,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="1HR-TR-xwU" firstAttribute="top" secondItem="P6Z-9i-dbH" secondAttribute="bottom" constant="5" id="8ad-3R-fyj"/>
-                    <constraint firstAttribute="bottom" secondItem="Xg3-B6-yjH" secondAttribute="bottom" constant="11" id="C4G-ZN-xKZ"/>
+                    <constraint firstAttribute="bottom" secondItem="Xg3-B6-yjH" secondAttribute="bottom" constant="30" id="C4G-ZN-xKZ"/>
                     <constraint firstItem="PGk-v2-NiH" firstAttribute="bottom" secondItem="Xg3-B6-yjH" secondAttribute="bottom" id="IpK-CZ-SUm"/>
                     <constraint firstAttribute="trailing" secondItem="Xg3-B6-yjH" secondAttribute="trailing" constant="20" symbolic="YES" id="Pto-HU-920"/>
                     <constraint firstItem="PGk-v2-NiH" firstAttribute="leading" secondItem="SLu-9S-S2N" secondAttribute="leading" constant="20" symbolic="YES" id="Unm-RM-Wb3"/>
