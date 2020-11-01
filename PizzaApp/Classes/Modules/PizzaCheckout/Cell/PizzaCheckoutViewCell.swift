@@ -12,7 +12,9 @@ import RxCocoa
 
 class PizzaCheckoutViewCell: UITableViewCell {
   var disposeBag: DisposeBag? = DisposeBag()
+  var pizza: Pizza?
   func setup(pizza: Pizza, count: Int) {
+    self.pizza = pizza
     if let image = pizza.image {
       productImageView.image = ImageDataService.shared.convertToUIImage(from: image)
     }
@@ -23,19 +25,15 @@ class PizzaCheckoutViewCell: UITableViewCell {
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var priceLabel: UILabel!
   @IBOutlet private weak var productImageView: UIImageView!
-  @IBOutlet private weak var closeButton: UIButton!
+  @IBOutlet weak var closeButton: UIButton!
   required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
   }
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    disposeBag = nil
-    disposeBag = DisposeBag()
-  }
+
   
 
   override func awakeFromNib() {
-      super.awakeFromNib()
+    super.awakeFromNib()
+    contentView.isUserInteractionEnabled = false
   }
 }

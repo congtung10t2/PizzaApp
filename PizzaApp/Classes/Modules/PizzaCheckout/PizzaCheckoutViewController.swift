@@ -18,11 +18,17 @@ class PizzaCheckoutViewController: UIViewController, PizzaCheckoutViewProtocol {
   let disposeBag = DisposeBag()
   var deliveryLabel: UILabel = UILabel()
   @IBOutlet private weak var tableView: UITableView!
+  var valueLabel: UILabel = UILabel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
   }
+  
+  func getSelectedItem(indexPath: IndexPath) -> Pizza {
+    items.value.map { $0.key }[indexPath.row]
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }
@@ -34,10 +40,19 @@ class PizzaCheckoutViewController: UIViewController, PizzaCheckoutViewProtocol {
     }
     addLabelDelivery()
     addLabelValue()
+    addButtonPayment()
     tableView.register(PizzaCheckoutViewCell.self)
-    items.bind(to: tableView.rx.items(cellIdentifier: PizzaCheckoutViewCell.identifier, cellType: PizzaCheckoutViewCell.self)) { index, model, cell in
-      cell.setup(pizza: model.key, count: model.value)
+    items.flatMapLatest { element -> Observable<[Pizza]> in
+      Observable.just(element.map({ $0.key }))
+    }.bind(to: tableView.rx.items(cellIdentifier: PizzaCheckoutViewCell.identifier, cellType: PizzaCheckoutViewCell.self)) { index, model, cell in
+      cell.setup(pizza: model, count: self.items.value[model] ?? 1)
     }.disposed(by: disposeBag)
+    tableView.rx.itemSelected.asDriver().drive(onNext: { indexPath in
+      var items = self.items.value
+      items.removeValue(forKey: self.getSelectedItem(indexPath: indexPath))
+      self.items.accept(items)
+      self.updateValuePrice()
+    }).disposed(by: disposeBag)
     navigationController?.setNavigationBarHidden(false, animated: false)
     navigationController?.title = "Checkout information"
     overrideUserInterfaceStyle = .light
@@ -52,7 +67,18 @@ class PizzaCheckoutViewController: UIViewController, PizzaCheckoutViewProtocol {
     }
   }
   func addButtonPayment() {
-    let paymentButton = UIButton()
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    button.setBackgroundImage(#imageLiteral(resourceName: "ic-payment"), for: .normal)
+    self.view.addSubview(button)
+    button.snp.makeConstraints { make in
+      make.width.equalTo(40)
+      make.height.equalTo(40)
+      make.bottom.equalTo(self.view.snp.bottom).offset(-20)
+      make.right.equalTo(self.view.snp.right).offset(-20)
+    }
+    button.rx.tap.subscribe({ [weak self] _ in
+      self?.showAlert(title: "Pizza Apps", message: "Payment will be implement later!")
+    }).disposed(by: disposeBag)
   }
   
   func getPriceTotal()-> String {
@@ -62,17 +88,20 @@ class PizzaCheckoutViewController: UIViewController, PizzaCheckoutViewProtocol {
     return "\(sum) usd"
   }
   
-  func addLabelValue() {
-    // create attributed string
+  func updateValuePrice() {
     let myString = "Value: \(getPriceTotal())"
     let myAttribute = [ NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular) ]
     let myAttrString = NSMutableAttributedString(string: myString, attributes: myAttribute)
     let smallString = "Value: "
     myAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 17, weight: .bold), range: NSRange(location: smallString.count,length: myString.count - smallString.count))
-    let valueLabel = UILabel()
     
     // set attributed text on a UILabel
     valueLabel.attributedText = myAttrString
+  }
+  
+  func addLabelValue() {
+    // create attributed string
+    updateValuePrice()
     tableView.tableFooterView?.addSubview(valueLabel)
     valueLabel.snp.makeConstraints { make in
       make.top.equalTo(deliveryLabel.snp.bottom).offset(10)

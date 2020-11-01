@@ -45,6 +45,7 @@
 		2EF1136A254E8C8600EF8259 /* PizzaCheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF11364254E8C8600EF8259 /* PizzaCheckoutViewController.xib */; };
 		2EF1136F254E913F00EF8259 /* PizzaCheckoutViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EF1136E254E913F00EF8259 /* PizzaCheckoutViewCell.xib */; };
 		2EF11372254E94A900EF8259 /* PizzaCheckoutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF11371254E94A900EF8259 /* PizzaCheckoutViewCell.swift */; };
+		2EF11383254EBAE900EF8259 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF11382254EBAE900EF8259 /* UIViewController+Extensions.swift */; };
 		92227E411FCEF3F3E1FE2320 /* Pods_PizzaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56DBE51372F4C82C2DDB8F8 /* Pods_PizzaApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		2EF11364254E8C8600EF8259 /* PizzaCheckoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaCheckoutViewController.xib; sourceTree = "<group>"; };
 		2EF1136E254E913F00EF8259 /* PizzaCheckoutViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaCheckoutViewCell.xib; sourceTree = "<group>"; };
 		2EF11371254E94A900EF8259 /* PizzaCheckoutViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCheckoutViewCell.swift; sourceTree = "<group>"; };
+		2EF11382254EBAE900EF8259 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		A2D8CE5709E0178790E4DB05 /* Pods-PizzaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaApp.debug.xcconfig"; path = "Target Support Files/Pods-PizzaApp/Pods-PizzaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BA6C88131C16D1D4AB52D991 /* Pods-VIPER-SimpsonQuotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER-SimpsonQuotes.release.xcconfig"; path = "Target Support Files/Pods-VIPER-SimpsonQuotes/Pods-VIPER-SimpsonQuotes.release.xcconfig"; sourceTree = "<group>"; };
 		CEC362BD49CA21AB2DE407CA /* Pods-VIPER-SimpsonQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPER-SimpsonQuotes.debug.xcconfig"; path = "Target Support Files/Pods-VIPER-SimpsonQuotes/Pods-VIPER-SimpsonQuotes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				2E12F654254D295100205202 /* UITableView+Extensions.swift */,
 				2E12F63B254D235E00205202 /* UIView+Extensions.swift */,
 				2EF1135B254E5D5900EF8259 /* UIButton+Extensions.swift */,
+				2EF11382254EBAE900EF8259 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				2EF1135C254E5D5900EF8259 /* UIButton+Extensions.swift in Sources */,
 				1CE0CA8423BE72F1000B6E63 /* PizzaDetailInteractor.swift in Sources */,
 				1CE0CA7623BE4A0C000B6E63 /* PizzaService.swift in Sources */,
+				2EF11383254EBAE900EF8259 /* UIViewController+Extensions.swift in Sources */,
 				1CE0CA8323BE72F1000B6E63 /* PizzaDetailViewController.swift in Sources */,
 				2EF11369254E8C8600EF8259 /* PizzaCheckoutInteractor.swift in Sources */,
 				1C3331CF23BE219D006A6DD4 /* PizzaInteractor.swift in Sources */,
