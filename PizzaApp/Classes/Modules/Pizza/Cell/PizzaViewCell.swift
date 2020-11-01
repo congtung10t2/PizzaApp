@@ -18,19 +18,6 @@ protocol PizzaCellPresenter {
 class PizzaViewCell: UITableViewCell, PizzaCellPresenter {
   public var onTapAdd = PublishSubject<Void>()
   var disposeBag: DisposeBag? = DisposeBag()
-  func setup(pizza: Pizza) {
-    titleLabel.text = pizza.title
-    descLabel.text = pizza.desc
-    quantityLabel.text = "100gram, 2 pieces"
-    priceButton.setTitle(pizza.priceString, for: .normal)
-    priceButton.setTitle("added +1", for: .selected)
-    priceButton.setBackgroundColor(color: .green, forState: .highlighted)
-    priceButton.setBackgroundColor(color: .green, forState: .selected)
-    priceButton.setBackgroundColor(color: .black, forState: .normal)
-    guard let image = pizza.image else { return }
-    productImageView.image = ImageDataService.shared.convertToUIImage(from: image)
-  }
-  
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var descLabel: UILabel!
   @IBOutlet private weak var quantityLabel: UILabel!
@@ -51,6 +38,20 @@ class PizzaViewCell: UITableViewCell, PizzaCellPresenter {
   }
   override func awakeFromNib() {
       super.awakeFromNib()
+  }
+  func setup(pizza: Pizza) {
+    titleLabel.text = pizza.title
+    descLabel.text = pizza.desc
+    quantityLabel.text = "100gram, 2 pieces"
+    priceButton.setTitle(pizza.priceString, for: .normal)
+    priceButton.setTitle("added +1", for: .selected)
+    priceButton.setBackgroundColor(color: .green, forState: .highlighted)
+    priceButton.setBackgroundColor(color: .green, forState: .selected)
+    priceButton.setBackgroundColor(color: .black, forState: .normal)
+    guard let image = pizza.image else { return }
+    productImageView.image = ImageDataService.shared.convertToUIImage(from: image)
+    self.contentView.backgroundColor = .clear
+    
   }
 }
 

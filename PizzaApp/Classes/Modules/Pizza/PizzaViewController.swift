@@ -104,6 +104,22 @@ extension PizzaViewController: UITableViewDelegate, UITableViewDataSource {
     presenter?.didSelectRowAt(index: indexPath.row)
     presenter?.deselectRowAt(index: indexPath.row)
   }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let bounceLimit: CGFloat = -400.0
+    var offset = scrollView.contentOffset;
+
+    if (offset.y < bounceLimit) {
+      offset.y = bounceLimit;
+      scrollView.contentOffset = offset;
+    }
+
+    let offsetY = scrollView.contentSize.height - scrollView.bounds.height - offset.y
+    if (offsetY < bounceLimit) {
+      offset.y = scrollView.contentOffset.y - (bounceLimit + abs(offsetY));
+      scrollView.contentOffset = offset;
+    }
+  }
 }
 
 // MARK: - UI Setup
@@ -124,6 +140,7 @@ extension PizzaViewController {
     let backItem = UIBarButtonItem()
     backItem.title = "Menu"
     navigationItem.backBarButtonItem = backItem
+    tableView.backgroundColor = .clear
   }
   
   func addPizzaButton() {

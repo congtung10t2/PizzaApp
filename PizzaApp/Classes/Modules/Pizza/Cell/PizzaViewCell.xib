@@ -18,7 +18,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-UI-FMT">
                         <rect key="frame" x="0.0" y="0.0" width="395" height="268"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="268" id="JCF-Q1-HRW"/>
                         </constraints>
@@ -66,6 +66,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="1HR-TR-xwU" firstAttribute="top" secondItem="P6Z-9i-dbH" secondAttribute="bottom" constant="5" id="8ad-3R-fyj"/>
                     <constraint firstAttribute="bottom" secondItem="Xg3-B6-yjH" secondAttribute="bottom" constant="30" id="C4G-ZN-xKZ"/>
@@ -78,6 +79,7 @@
                     <constraint firstItem="1HR-TR-xwU" firstAttribute="leading" secondItem="SLu-9S-S2N" secondAttribute="leading" constant="20" symbolic="YES" id="udV-pA-WcG"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="W8I-UI-FMT" firstAttribute="leading" secondItem="Lpu-2z-1aP" secondAttribute="leading" id="IzF-fr-3Ut"/>
                 <constraint firstAttribute="trailing" secondItem="W8I-UI-FMT" secondAttribute="trailing" id="YOi-u0-S5V"/>
