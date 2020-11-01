@@ -10,20 +10,23 @@ import UIKit
 import PKHUD
 import SnapKit
 import ParallaxHeader
+import RxSwift
+import RxCocoa
 
 class PizzaViewController: UIViewController {
-  
+  let disposeBag = DisposeBag()
+  let pizzaQuantity = BehaviorRelay<Int>(value: 0)
   // MARK: - Lifecycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
-    
     presenter?.viewDidLoad()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.navigationController?.isNavigationBarHidden = true
+    self.navigationController?.navigationBar.isHidden = true
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
   }
   // MARK: - Actions
   @objc func refresh() {
@@ -87,6 +90,11 @@ extension PizzaViewController: UITableViewDelegate, UITableViewDataSource {
     let cell: PizzaViewCell = tableView.dequeueReusableCell(for: indexPath)
     guard let pizza = presenter?.pizzaTitles?[indexPath.row] else { return cell }
     cell.setup(pizza: pizza)
+    cell.onTapAdd.subscribe(onNext: {
+      let quantity = self.pizzaQuantity.value + 1
+      self.pizzaQuantity.accept(quantity)
+    }).disposed(by: cell.disposeBag!)
+    
     return cell
   }
   
@@ -99,19 +107,68 @@ extension PizzaViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UI Setup
 extension PizzaViewController {
   func setupUI() {
-    overrideUserInterfaceStyle = .light
-    navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.barTintColor = .black
     self.view.addSubview(tableView)
     tableView.addSubview(refreshControl)
+    addParalaxheader()
+    
+    tableView.snp.makeConstraints { make in
+      make.bottom.equalToSuperview()
+      make.top.equalToSuperview().offset(-self.view.safeAreaTop)
+      make.left.equalToSuperview()
+      make.right.equalToSuperview()
+    }
+    tableView.register(PizzaViewCell.self)
+    addPizzaButton()
+  }
+  
+  func addPizzaButton() {
+    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    button.setBackgroundImage(#imageLiteral(resourceName: "ic-pizza"), for: .normal)
+    self.view.addSubview(button)
+    button.snp.makeConstraints { make in
+      make.width.equalTo(40)
+      make.height.equalTo(40)
+      make.bottom.equalTo(self.view.snp.bottom).offset(-20)
+      make.right.equalTo(self.view.snp.right).offset(-20)
+    }
+    let addIcon = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+    addIcon.backgroundColor = .green
+    addIcon.cornerRadius = 10
+    let addText = UILabel(frame: addIcon.frame)
+    addText.text = "0"
+    pizzaQuantity.subscribe(onNext: { value in
+      addText.text = "\(value)"
+    }).disposed(by: disposeBag)
+    addText.textAlignment = .center
+    addText.textColor = .white
+    addIcon.addSubview(addText)
+    addText.snp.makeConstraints { make in
+      make.top.equalToSuperview()
+      make.bottom.equalToSuperview()
+      make.right.equalToSuperview()
+      make.left.equalToSuperview()
+    }
+    button.addSubview(addIcon)
+    addIcon.snp.makeConstraints { make in
+      make.size.equalTo( CGSize(width: 20, height: 20))
+      make.top.equalTo(button.snp.top).offset(-10)
+      make.right.equalTo(button.snp.right)
+      
+    }
+  }
+  
+  func addParalaxheader() {
     let parentView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 400))
+    parentView.backgroundColor = .clear
     tableView.parallaxHeader.view = parentView
     tableView.parallaxHeader.height = 300
     tableView.parallaxHeader.minimumHeight = 0
-    tableView.parallaxHeader.mode = .topFill
+    tableView.parallaxHeader.mode = .centerFill
     let promotionView = PromotionView.fromNib()
     parentView.blurView.setup(style: UIBlurEffect.Style.dark, alpha: 1).enable()
-  
+    parentView.snp.makeConstraints { make in
+      make.top.bottom.right.left.equalToSuperview()
+    }
     tableView.parallaxHeader.view.addSubview(promotionView)
     promotionView.snp.makeConstraints { make in
       make.leading.equalToSuperview()
@@ -120,19 +177,12 @@ extension PizzaViewController {
       make.bottom.equalToSuperview()
     }
     tableView.parallaxHeader.parallaxHeaderDidScrollHandler = { parallaxHeader in
-        //update alpha of blur view on top of image view
+      //update alpha of blur view on top of image view
       promotionView.scrollingValue.accept(parallaxHeader.progress)
     }
     promotionView.alpha = 1
-    tableView.snp.makeConstraints { make in
-      make.bottom.equalToSuperview()
-      make.top.equalToSuperview()
-      make.left.equalToSuperview()
-      make.right.equalToSuperview()
-    }
-    tableView.register(PizzaViewCell.self)
   }
   override var prefersStatusBarHidden: Bool {
-      return true
+    return true
   }
 }

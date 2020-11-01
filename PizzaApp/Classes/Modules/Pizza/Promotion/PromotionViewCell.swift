@@ -21,6 +21,7 @@ class PromotionViewCell: UICollectionViewCell {
   func configurate(name: String) {
     let imageView = UIImageView(frame: self.frame)
     imageView.image = ImageDataService.shared.convertToUIImage(from: name)
+    imageView.contentMode = .scaleToFill
     self.addSubview(imageView)
     imageView.snp.makeConstraints { make in
       make.leading.equalToSuperview()

@@ -210,3 +210,21 @@ extension UIView {
         )
     }
 }
+// MARK: Safe area height
+extension UIView {
+  var safeAreaBottom : CGFloat {
+      if #available(iOS 11, *){
+        let window = UIApplication.shared.keyWindow;
+        return window?.safeAreaInsets.bottom ?? 0;
+      }
+      return 0;
+    }
+    
+    var safeAreaTop : CGFloat {
+      if #available(iOS 11, *){
+        let window = UIApplication.shared.keyWindow;
+        return window?.safeAreaInsets.top ?? 0;
+      }
+      return 0;
+    }
+}

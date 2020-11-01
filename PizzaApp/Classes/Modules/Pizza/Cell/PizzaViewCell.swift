@@ -9,18 +9,24 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxCocoa
 
 protocol PizzaCellPresenter {
   func setup(pizza: Pizza)
 }
 
 class PizzaViewCell: UITableViewCell, PizzaCellPresenter {
+  public var onTapAdd = PublishSubject<Void>()
+  var disposeBag: DisposeBag? = DisposeBag()
   func setup(pizza: Pizza) {
     titleLabel.text = pizza.title
     descLabel.text = pizza.desc
     quantityLabel.text = "100gram, 2 pieces"
     priceButton.setTitle(pizza.priceString, for: .normal)
-    
+    priceButton.setTitle("added +1", for: .selected)
+    priceButton.setBackgroundColor(color: .green, forState: .highlighted)
+    priceButton.setBackgroundColor(color: .green, forState: .selected)
+    priceButton.setBackgroundColor(color: .black, forState: .normal)
     guard let image = pizza.image else { return }
     productImageView.image = ImageDataService.shared.convertToUIImage(from: image)
   }
@@ -34,8 +40,18 @@ class PizzaViewCell: UITableViewCell, PizzaCellPresenter {
       super.init(coder: aDecoder)
       
   }
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    disposeBag = nil
+    disposeBag = DisposeBag()
+  }
+  
+  @IBAction func onAddButton(_ sender: Any) {
+    onTapAdd.onNext(())
+  }
   override func awakeFromNib() {
       super.awakeFromNib()
   }
 }
+
 

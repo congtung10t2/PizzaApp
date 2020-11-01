@@ -35,13 +35,18 @@ class PromotionView: UIView, NibInstantiatable {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     layout.scrollDirection = .horizontal
-    layout.itemSize = CGSize(width: self.frame.width, height: self.frame.height)
+    
+    
     collectionView.collectionViewLayout = layout
     interactor.promotionRelay.subscribe(onNext: { [self] value in
       pageControl.numberOfPages = value.count
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
     self.pageControl.isHidden = false
+    collectionView.snp.makeConstraints { make in
+      make.bottom.top.left.right.equalToSuperview()
+      layout.itemSize = CGSize(width: self.frame.width, height: self.frame.height)
+    }
   }
 }
 
@@ -70,6 +75,6 @@ extension PromotionView: UICollectionViewDataSource, UICollectionViewDelegate {
     return cell
   }
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    self.frame.size
+    collectionView.frame.size
   }
 }

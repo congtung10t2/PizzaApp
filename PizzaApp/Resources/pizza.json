@@ -1,30 +1,30 @@
 [{
-    "title": "Hawaiian",
-    "desc": "Pizza good from Shop ABC",
+    "title": "Pizza Margherita",
+    "desc": "San Marzano tomato sauce, fresh mozzarella fior di latte, fresh organic basil",
     "image": "pizz1",
     "price": 533
 },
 {
-    "title": "Babecues",
-    "desc": "Pizza with meat",
+    "title": "Sonny (Italian Sausage)",
+    "desc": "San Marzano tomato sauce, fresh mozzarella, grated parmesan and pepperoni from Il Mondo Vecchio",
     "image": "pizz2",
     "price": 334
 },
 {
-    "title": "HotPizza",
-    "desc": "Pizza with hot source",
+    "title": "Fun-Guy (The Shroom)",
+    "desc": "White pizza with garlic infused olive oil, goat cheese from Jumpin’ Good Goat Dairy, mozzarella fior di latte and organic, locally raised Shitake mushrooms from Hazel Dell (Featured in Denver Magazine, 100 things to taste, October 2010)",
     "image": "pizz3",
     "price": 423
 },
 {
-    "title": "SeaFood",
-    "desc": "Pizza with sea food",
+    "title": "Porcetta Flat-bread Sandwich",
+    "desc": "A traditional Italian seasoned roasted pork shoulder, seared in the oven, served on a fresh, hand-made flat-bread then topped with pesto crème fraiche and arugula ",
     "image": "pizz4",
     "price": 253
 },
 {
-    "title": "Veggetable",
-    "desc": "Pizza with vegetable",
+    "title": "Marky (Pepperoni Americana)",
+    "desc": "San Marzano tomato sauce, fresh mozzarella, grated parmesan and pepperoni from Il Mondo Vecchio",
     "image": "pizz5",
     "price": 323
 }]

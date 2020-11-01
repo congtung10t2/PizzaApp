@@ -69,28 +69,22 @@ extension PizzaDetailViewController {
   func setupUI() {
     overrideUserInterfaceStyle = .light
     navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.backgroundColor = .clear
     self.view.backgroundColor = .white
     
     self.view.addSubview(characterImageView)
     self.view.addSubview(pizzaLabel)
-    
-    let widthHeightConstant = self.view.frame.width * 0.8
-    characterImageView.translatesAutoresizingMaskIntoConstraints = false
-    characterImageView.widthAnchor.constraint(equalToConstant: widthHeightConstant)
-      .isActive = true
-    characterImageView.heightAnchor.constraint(equalToConstant: widthHeightConstant)
-      .isActive = true
-    characterImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
-      .isActive = true
-    characterImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-      .isActive = true
-    pizzaLabel.translatesAutoresizingMaskIntoConstraints = false
-    pizzaLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor)
-      .isActive = true
-    pizzaLabel.topAnchor.constraint(equalTo: characterImageView.bottomAnchor)
-      .isActive = true
-    pizzaLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-      .isActive = true
+    characterImageView.snp.makeConstraints { make in
+      make.top.equalToSuperview().offset(self.view.safeAreaTop)
+      make.height.equalTo(300)
+      make.right.equalToSuperview()
+      make.left.equalToSuperview()
+    }
+    pizzaLabel.snp.makeConstraints { make in
+      make.left.equalTo(self.view.snp.left).offset(20)
+      make.top.equalTo(self.characterImageView.snp.bottom).offset(30)
+      make.right.equalTo(self.view.snp.right).offset(-20)
+    }
   }
   
 }

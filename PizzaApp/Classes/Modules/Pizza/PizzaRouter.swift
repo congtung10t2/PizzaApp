@@ -19,7 +19,7 @@ class PizzaRouter: PresenterToRouterPizzaProtocol {
     let navigationController = UINavigationController(rootViewController: viewController)
     
     let presenter: ViewToPresenterPizzaProtocol & InteractorToPresenterPizzaProtocol = PizzaPresenter()
-    
+    navigationController.modalPresentationStyle = .fullScreen
     viewController.presenter = presenter
     viewController.presenter?.router = PizzaRouter()
     viewController.presenter?.view = viewController

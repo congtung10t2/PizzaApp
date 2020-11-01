@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,9 +28,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg3-B6-yjH">
-                        <rect key="frame" x="256" y="326" width="119" height="34"/>
-                        <color key="backgroundColor" systemColor="labelColor"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg3-B6-yjH">
+                        <rect key="frame" x="256" y="353" width="119" height="36"/>
+                        <color key="backgroundColor" red="0.16234763547370681" green="0.73344397668393779" blue="0.29941587382432222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="36" id="irH-Fi-QPG"/>
                             <constraint firstAttribute="width" constant="119" id="nOh-GH-t2o"/>
@@ -39,11 +38,15 @@
                         <state key="normal">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <state key="highlighted" title="added +1"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="18"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="onAddButton:" destination="Lpu-2z-1aP" eventType="touchUpInside" id="tYV-LI-V1R"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6Z-9i-dbH">
                         <rect key="frame" x="20" y="276" width="49.5" height="23"/>
@@ -51,7 +54,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HR-TR-xwU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HR-TR-xwU">
                         <rect key="frame" x="20" y="305" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,6 +72,7 @@
                     <constraint firstItem="PGk-v2-NiH" firstAttribute="bottom" secondItem="Xg3-B6-yjH" secondAttribute="bottom" id="IpK-CZ-SUm"/>
                     <constraint firstAttribute="trailing" secondItem="Xg3-B6-yjH" secondAttribute="trailing" constant="20" symbolic="YES" id="Pto-HU-920"/>
                     <constraint firstItem="PGk-v2-NiH" firstAttribute="leading" secondItem="SLu-9S-S2N" secondAttribute="leading" constant="20" symbolic="YES" id="Unm-RM-Wb3"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1HR-TR-xwU" secondAttribute="trailing" constant="20" id="aLH-dh-1l5"/>
                     <constraint firstItem="P6Z-9i-dbH" firstAttribute="leading" secondItem="SLu-9S-S2N" secondAttribute="leading" constant="20" symbolic="YES" id="fld-8K-y9a"/>
                     <constraint firstItem="P6Z-9i-dbH" firstAttribute="top" secondItem="W8I-UI-FMT" secondAttribute="bottom" constant="8" symbolic="YES" id="mEq-TT-NCz"/>
                     <constraint firstItem="1HR-TR-xwU" firstAttribute="leading" secondItem="SLu-9S-S2N" secondAttribute="leading" constant="20" symbolic="YES" id="udV-pA-WcG"/>
@@ -89,9 +93,4 @@
             <point key="canvasLocation" x="-81.884057971014499" y="187.16517857142856"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
