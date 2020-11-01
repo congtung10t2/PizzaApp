@@ -32,7 +32,6 @@ extension MoyaService: TargetType {
         }
         return data
       case .promotion:
-        // Provided you have a file named accounts.json in your bundle.
         guard let url = Bundle.main.url(forResource: "promotion", withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
           return Data()

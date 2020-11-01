@@ -27,10 +27,10 @@ class PizzaService {
             success(200, pizza!)
           }
           catch let error {
-            print(error)
+            failure(error.asAFError?.responseCode ?? 404)
           }
         case let .failure(error):
-          print(error)
+          failure(error.asAFError?.responseCode ?? 400)
       }
     }
   }
