@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit.UIImage
+import RxSwift
 
 class PizzaDetailPresenter: ViewToPresenterPizzaDetailProtocol {
-  
   // MARK: Properties
   weak var view: PresenterToViewPizzaDetailProtocol?
   var interactor: PresenterToInteractorPizzaDetailProtocol?
@@ -25,13 +25,12 @@ class PizzaDetailPresenter: ViewToPresenterPizzaDetailProtocol {
 
 extension PizzaDetailPresenter: InteractorToPresenterPizzaDetailProtocol {
   func getImageFromURLSuccess(pizza: Pizza, image: UIImage) {
-    guard let desc = pizza.desc, let image = pizza.image else { return }
-    view?.onGetImageFromURLSuccess(desc, image: ImageDataService.shared.convertToUIImage(from: image))
+    self.view?.onGetImageFromURLSuccess(pizza.desc ?? "", image: image)
   }
   
-  func getImageFromURLFailure(pizza: Pizza) {
+  func getImageFromURLFailure(errorMessage: String) {
     print("Presenter receives the result from Interactor after it's done its job.")
-    view?.onGetImageFromURLFailure(pizza.desc ?? "Failed")
+    view?.onGetImageFromURLFailure(errorMessage)
   }
   
 }

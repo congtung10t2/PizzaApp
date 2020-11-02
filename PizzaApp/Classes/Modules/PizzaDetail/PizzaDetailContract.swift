@@ -45,7 +45,7 @@ protocol PresenterToInteractorPizzaDetailProtocol: class {
 protocol InteractorToPresenterPizzaDetailProtocol: class {
     
     func getImageFromURLSuccess(pizza: Pizza, image: UIImage)
-    func getImageFromURLFailure(pizza: Pizza)
+    func getImageFromURLFailure(errorMessage: String)
     
 }
 

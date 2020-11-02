@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
 
 class PromotionViewCell: UICollectionViewCell {
+  let disposeBag = DisposeBag()
   override func prepareForReuse() {
     super.prepareForReuse()
     for subview in self.contentView.subviews {
@@ -20,7 +22,7 @@ class PromotionViewCell: UICollectionViewCell {
   
   func configurate(name: String) {
     let imageView = UIImageView(frame: self.frame)
-    imageView.image = ImageDataService.shared.convertToUIImage(from: name)
+    ImageDataService.shared.convertToUIImage(from: name).bind(to: imageView.rx.image).disposed(by: disposeBag)
     imageView.contentMode = .scaleToFill
     self.addSubview(imageView)
     imageView.snp.makeConstraints { make in

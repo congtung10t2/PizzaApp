@@ -8,35 +8,55 @@
 
 import Foundation
 import Moya
-enum MoyaService: String {
+enum MoyaService {
   case pizza
   case promotion
+  case image(param: String)
 }
 extension MoyaService: TargetType {
   var baseURL: URL { return URL(string: "https://api.congtung.com")! }
   var path: String {
-    return self.rawValue
+    switch self {
+      case .pizza:
+        return "pizza"
+      case .promotion:
+        return "promotion"
+      case .image(let param):
+        return "images/\(param)"
+    }
   }
+  
   var method: Moya.Method {
     return .get
   }
   var task: Task {
-    return .requestPlain
+    switch self {
+      case .image(let param):
+        return .requestParameters(parameters: ["imageName": param], encoding: URLEncoding.queryString)
+      case .promotion:
+      return .requestParameters(parameters: ["promotion": "all"], encoding: URLEncoding.queryString)
+      default:
+        return .requestPlain
+    }
+    
   }
   var sampleData: Data {
     switch self {
       case .pizza:
-        guard let url = Bundle.main.url(forResource: "pizza", withExtension: "json"),
+        guard let url = Bundle.main.url(forResource: path, withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
           return Data()
         }
         return data
       case .promotion:
-        guard let url = Bundle.main.url(forResource: "promotion", withExtension: "json"),
+        guard let url = Bundle.main.url(forResource: path, withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
           return Data()
         }
         return data
+      case .image(let param):
+        return UIImage(imageLiteralResourceName: param).pngData() ?? Data()
+        
     }
   }
   var headers: [String: String]? {

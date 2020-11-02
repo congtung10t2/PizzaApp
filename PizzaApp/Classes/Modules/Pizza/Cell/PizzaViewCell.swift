@@ -49,7 +49,8 @@ class PizzaViewCell: UITableViewCell, PizzaCellPresenter {
     priceButton.setBackgroundColor(color: .green, forState: .selected)
     priceButton.setBackgroundColor(color: .black, forState: .normal)
     guard let image = pizza.image else { return }
-    productImageView.image = ImageDataService.shared.convertToUIImage(from: image)
+    disposeBag?.insert(ImageDataService.shared.convertToUIImage(from: image).bind(to: productImageView.rx.image))
+    
     self.contentView.backgroundColor = .clear
     
   }

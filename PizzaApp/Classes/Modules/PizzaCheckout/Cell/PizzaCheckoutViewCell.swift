@@ -11,12 +11,12 @@ import RxSwift
 import RxCocoa
 
 class PizzaCheckoutViewCell: UITableViewCell {
-  var disposeBag: DisposeBag? = DisposeBag()
+  let disposeBag = DisposeBag()
   var pizza: Pizza?
   func setup(pizza: Pizza, count: Int) {
     self.pizza = pizza
     if let image = pizza.image {
-      productImageView.image = ImageDataService.shared.convertToUIImage(from: image)
+      ImageDataService.shared.convertToUIImage(from: image).bind(to: productImageView.rx.image).disposed(by: disposeBag)
     }
     titleLabel.text = pizza.title ?? ""
     priceLabel.text = "\(pizza.price * Double(count)) usd"
@@ -29,8 +29,6 @@ class PizzaCheckoutViewCell: UITableViewCell {
   required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
   }
-
-  
 
   override func awakeFromNib() {
     super.awakeFromNib()

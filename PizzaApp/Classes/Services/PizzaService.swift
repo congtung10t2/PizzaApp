@@ -13,20 +13,17 @@ import RxSwift
 class PizzaService {
   static let shared = PizzaService()
   let provider = MoyaProvider<MoyaService>(stubClosure: MoyaProvider.immediatelyStub)
-  
   func getPizza() -> Observable<[Pizza]> {
     return Observable.create { observe in
       return self.provider.rx.request(.pizza).subscribe { event in
         switch event {
           case let .success(response):
-            do {
-              let str = String(decoding: response.data, as: UTF8.self)
-              if let pizza = Mapper<Pizza>().mapArray(JSONString: str) {
-                observe.onNext(pizza)
-              } else {
-                let error = NSError(domain: "com.congtung.pizza", code: 1, userInfo: ["message": "Can't decode pizza"])
-                observe.onError(error)
-              }
+            let str = String(decoding: response.data, as: UTF8.self)
+            if let pizza = Mapper<Pizza>().mapArray(JSONString: str) {
+              observe.onNext(pizza)
+            } else {
+              let error = NSError(domain: "com.congtung.pizza", code: 1, userInfo: ["message": "Can't decode pizza"])
+              observe.onError(error)
             }
           case let .error(error):
             observe.onError(error)
@@ -52,6 +49,5 @@ class PizzaService {
         }
       }
     }
-    
   }
 }
