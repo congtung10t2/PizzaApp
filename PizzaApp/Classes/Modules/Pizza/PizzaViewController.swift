@@ -115,6 +115,9 @@ extension PizzaViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     let offsetY = scrollView.contentSize.height - scrollView.bounds.height - offset.y
+    if scrollView.contentSize.height < 0.1 {
+      return
+    }
     if (offsetY < bounceLimit) {
       offset.y = scrollView.contentOffset.y - (bounceLimit + abs(offsetY));
       scrollView.contentOffset = offset;

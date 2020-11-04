@@ -12,7 +12,7 @@ import RxSwift
 
 class PizzaService {
   static let shared = PizzaService()
-  let provider = MoyaProvider<MoyaService>(stubClosure: MoyaProvider.immediatelyStub)
+  let provider = MoyaProvider<MoyaService>(stubClosure: MoyaProvider.delayedStub(2))
   func getPizza() -> Observable<[Pizza]> {
     return Observable.create { observe in
       return self.provider.rx.request(.pizza).subscribe { event in
